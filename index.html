@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ScenInk Support</title>
   <meta name="description" content="Official support page for ScenInk." />
+  <link rel="icon" type="image/png" href="AppIcon.png" />
   <style>
     :root {
       --bg: #05070d;
@@ -22,6 +23,7 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
@@ -68,9 +70,20 @@
     }
 
     .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-size: 1.15rem;
       font-weight: 700;
       letter-spacing: 0.3px;
+    }
+
+    .brand img {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      object-fit: cover;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
     }
 
     .brand span { color: var(--accent); }
@@ -189,14 +202,6 @@
       overflow: hidden;
     }
 
-    .device::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), transparent 35%);
-      pointer-events: none;
-    }
-
     .mock-title {
       font-size: 0.92rem;
       color: var(--muted);
@@ -226,6 +231,21 @@
     .mock-line.small { width: 60%; }
     .mock-line.mid { width: 80%; }
     .mock-line.full { width: 100%; }
+
+    .app-icon-hero {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .app-icon-hero img {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      object-fit: cover;
+      box-shadow: 0 12px 26px rgba(0,0,0,0.35);
+    }
 
     section {
       padding: 34px 0;
@@ -296,6 +316,7 @@
       text-decoration: none;
       font-weight: 700;
       font-size: 1.05rem;
+      word-break: break-word;
     }
 
     .faq {
@@ -362,18 +383,32 @@
       h1 {
         font-size: clamp(2.4rem, 12vw, 4rem);
       }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .nav nav a {
+        margin-left: 0;
+        margin-right: 14px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
-      <div class="brand">Scen<span>Ink</span></div>
+      <div class="brand">
+        <img src="AppIcon.png" alt="ScenInk App Icon">
+        <div>Scen<span>Ink</span></div>
+      </div>
       <nav>
         <a href="#about">About</a>
         <a href="#support">Support</a>
         <a href="#faq">FAQ</a>
-        <a href="#legal">Legal</a>
+        <a href="privacy.html">Privacy Policy</a>
       </nav>
     </div>
   </header>
@@ -384,14 +419,20 @@
       <div class="container hero-grid">
         <div>
           <div class="eyebrow">Official Support Website</div>
-          <h1>ScenInk</h1>
+
+          <div class="app-icon-hero">
+            <img src="AppIcon.png" alt="ScenInk App Icon">
+            <div>
+              <h1>ScenInk</h1>
+            </div>
+          </div>
+
           <div class="tagline">Build the scene. Draw the story.</div>
           <p class="lead">
-            ScenInk is a creative tool that helps artists build scenes, pose characters,
-            explore camera angles, and draw directly on top of their references.
+            ScenInk is a creative tool designed for comic artists, illustrators, and visual storytellers. It helps users build scenes, pose characters, explore camera angles, and draw directly on top of their references.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="mailto:support@scenink.app">Contact Support</a>
+            <a class="btn btn-primary" href="mailto:tonybonny2001@gmail.com">Contact Support</a>
             <a class="btn btn-secondary" href="#faq">View FAQ</a>
           </div>
         </div>
@@ -428,27 +469,25 @@
       <div class="container section-card">
         <h2>About ScenInk</h2>
         <p class="section-lead">
-          ScenInk is designed for comic artists, illustrators, and visual storytellers.
-          It helps simplify complex drawing challenges by combining scene construction,
-          posing, camera exploration, and sketching in one creative workflow.
+          ScenInk is designed to simplify comic creation and visual storytelling by helping artists handle scene composition, character posing, perspective, anatomy, and storytelling through camera angles.
         </p>
 
         <div class="features">
           <div class="feature">
             <h3>Scene composition</h3>
-            <p>Build references that help you organize framing, depth, and visual balance.</p>
+            <p>Build references that help organize framing, depth, and visual balance.</p>
           </div>
           <div class="feature">
             <h3>Character posing</h3>
-            <p>Arrange poses more clearly before committing to your final drawing.</p>
+            <p>Adjust poses before committing to the final drawing.</p>
           </div>
           <div class="feature">
             <h3>Perspective & anatomy</h3>
-            <p>Use scene and pose references to support difficult angles and body structure.</p>
+            <p>Support difficult angles, body structure, and complex hand references.</p>
           </div>
           <div class="feature">
             <h3>Storytelling through camera</h3>
-            <p>Explore points of view and camera angles to improve visual narration.</p>
+            <p>Explore camera angles and points of view to improve visual narration.</p>
           </div>
         </div>
       </div>
@@ -460,19 +499,17 @@
           <div class="mail-box">
             <h2>Support</h2>
             <p class="section-lead" style="margin-bottom: 0;">
-              If you need help using ScenInk, have questions, or want to report a bug,
-              please contact us by email.
+              If you need help using ScenInk, have questions, or want to report a bug, please contact us by email.
             </p>
-            <a class="support-email" href="mailto:support@scenink.app">support@scenink.app</a>
+            <a class="support-email" href="mailto:tonybonny2001@gmail.com">tonybonny2001@gmail.com</a>
           </div>
 
-          <div class="legal-box" id="legal">
-            <h2>Privacy & Legal</h2>
+          <div class="legal-box">
+            <h2>Privacy</h2>
             <p class="section-lead" style="margin-bottom: 10px;">
-              Add your official documents here before publishing broadly.
+              Read our Privacy Policy for more information about how ScenInk handles user data.
             </p>
-            <p><a class="support-email" href="#">Privacy Policy</a></p>
-            <p><a class="support-email" href="#">Terms of Use</a></p>
+            <p><a class="support-email" href="privacy.html">Privacy Policy</a></p>
           </div>
         </div>
       </div>
@@ -494,12 +531,12 @@
 
           <details>
             <summary>How can I report a bug?</summary>
-            <p>You can report bugs by emailing us at support@scenink.app with a short description of the issue and, if possible, screenshots.</p>
+            <p>You can report bugs by emailing us at tonybonny2001@gmail.com with a short description of the issue and, if possible, screenshots.</p>
           </details>
 
           <details>
             <summary>Is ScenInk available on iPhone and iPad?</summary>
-            <p>Update this answer based on your release targets. For example: “ScenInk is currently optimized for iPad.”</p>
+            <p>ScenInk is currently available only for iPad.</p>
           </details>
 
           <details>
@@ -518,11 +555,10 @@
         Official support website
       </div>
       <div class="footer-links">
-        <a href="mailto:support@scenink.app">support@scenink.app</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Use</a>
+        <a href="mailto:tonybonny2001@gmail.com">tonybonny2001@gmail.com</a>
+        <a href="privacy.html">Privacy Policy</a>
       </div>
-      <div>© 2026 ScenInk. All rights reserved.</div>
+      <div>© 2026 Allianz Team (Giulia, Antonio, Antimo, Alessandro, Pierluigi)</div>
     </div>
   </footer>
 </body>
