@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ScenInk Support</title>
+  <meta name="description" content="Official support page for ScenInk." />
+  <style>
+    :root {
+      --bg: #05070d;
+      --bg-soft: #0b1120;
+      --card: rgba(255,255,255,0.06);
+      --card-border: rgba(255,255,255,0.12);
+      --text: #f5f7fb;
+      --muted: #b9c2d0;
+      --accent: #8fd8ff;
+      --accent-2: #c9eeff;
+      --shadow: 0 20px 50px rgba(0,0,0,0.35);
+      --radius: 22px;
+      --max: 1100px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 80% 8%, rgba(143, 216, 255, 0.25), transparent 18%),
+        radial-gradient(circle at 20% 100%, rgba(143, 216, 255, 0.08), transparent 20%),
+        linear-gradient(180deg, #03050a 0%, #08101d 40%, #05070d 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .spotlight {
+      position: absolute;
+      top: -80px;
+      right: 6%;
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(ellipse at top, rgba(255,255,255,0.38), rgba(143,216,255,0.14) 25%, transparent 65%);
+      transform: rotate(18deg);
+      filter: blur(16px);
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(5, 7, 13, 0.55);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+    }
+
+    .brand {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .brand span { color: var(--accent); }
+
+    .nav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 0.95rem;
+    }
+
+    .nav a:hover { color: var(--text); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 92px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 0.95rem;
+      letter-spacing: 0.2px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+    }
+
+    .tagline {
+      margin-top: 18px;
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      color: var(--accent-2);
+      font-weight: 600;
+    }
+
+    .lead {
+      margin-top: 18px;
+      max-width: 640px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.22s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #c7f0ff);
+      color: #04111a;
+      box-shadow: 0 10px 30px rgba(143, 216, 255, 0.24);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 34px rgba(143, 216, 255, 0.32);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.1);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .device-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border: 1px solid var(--card-border);
+      border-radius: 30px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      justify-self: end;
+      max-width: 360px;
+      width: 100%;
+    }
+
+    .device {
+      border-radius: 24px;
+      padding: 20px;
+      min-height: 520px;
+      background:
+        radial-gradient(circle at 70% 10%, rgba(143,216,255,0.18), transparent 20%),
+        linear-gradient(180deg, #0b1220 0%, #070b14 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .device::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), transparent 35%);
+      pointer-events: none;
+    }
+
+    .mock-title {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .mock-panel {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+
+    .mock-panel h3 {
+      margin: 0 0 10px 0;
+      font-size: 1rem;
+    }
+
+    .mock-line {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.1);
+      margin: 10px 0;
+    }
+
+    .mock-line.small { width: 60%; }
+    .mock-line.mid { width: 80%; }
+    .mock-line.full { width: 100%; }
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      margin: 0 0 10px 0;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      letter-spacing: -0.03em;
+    }
+
+    .section-lead {
+      color: var(--muted);
+      max-width: 760px;
+      margin-bottom: 22px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .feature {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .feature h3 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+    }
+
+    .feature p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .support-box {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .mail-box, .legal-box {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .support-email {
+      display: inline-block;
+      margin-top: 12px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .faq {
+      display: grid;
+      gap: 14px;
+    }
+
+    details {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 16px 18px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details p {
+      margin: 10px 0 0;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 32px 0 48px;
+      color: var(--muted);
+    }
+
+    .footer-wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-right: 16px;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .support-box,
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .device-card {
+        justify-self: start;
+        max-width: 100%;
+      }
+
+      h1 {
+        font-size: clamp(2.4rem, 12vw, 4rem);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">Scen<span>Ink</span></div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#support">Support</a>
+        <a href="#faq">FAQ</a>
+        <a href="#legal">Legal</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="spotlight"></div>
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Official Support Website</div>
+          <h1>ScenInk</h1>
+          <div class="tagline">Build the scene. Draw the story.</div>
+          <p class="lead">
+            ScenInk is a creative tool that helps artists build scenes, pose characters,
+            explore camera angles, and draw directly on top of their references.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:support@scenink.app">Contact Support</a>
+            <a class="btn btn-secondary" href="#faq">View FAQ</a>
+          </div>
+        </div>
+
+        <div class="device-card">
+          <div class="device">
+            <div class="mock-title">Creative workflow</div>
+
+            <div class="mock-panel">
+              <h3>Compose the scene</h3>
+              <div class="mock-line full"></div>
+              <div class="mock-line mid"></div>
+              <div class="mock-line small"></div>
+            </div>
+
+            <div class="mock-panel">
+              <h3>Pose the character</h3>
+              <div class="mock-line full"></div>
+              <div class="mock-line small"></div>
+            </div>
+
+            <div class="mock-panel">
+              <h3>Draw on top</h3>
+              <div class="mock-line mid"></div>
+              <div class="mock-line full"></div>
+              <div class="mock-line small"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container section-card">
+        <h2>About ScenInk</h2>
+        <p class="section-lead">
+          ScenInk is designed for comic artists, illustrators, and visual storytellers.
+          It helps simplify complex drawing challenges by combining scene construction,
+          posing, camera exploration, and sketching in one creative workflow.
+        </p>
+
+        <div class="features">
+          <div class="feature">
+            <h3>Scene composition</h3>
+            <p>Build references that help you organize framing, depth, and visual balance.</p>
+          </div>
+          <div class="feature">
+            <h3>Character posing</h3>
+            <p>Arrange poses more clearly before committing to your final drawing.</p>
+          </div>
+          <div class="feature">
+            <h3>Perspective & anatomy</h3>
+            <p>Use scene and pose references to support difficult angles and body structure.</p>
+          </div>
+          <div class="feature">
+            <h3>Storytelling through camera</h3>
+            <p>Explore points of view and camera angles to improve visual narration.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="support">
+      <div class="container">
+        <div class="support-box">
+          <div class="mail-box">
+            <h2>Support</h2>
+            <p class="section-lead" style="margin-bottom: 0;">
+              If you need help using ScenInk, have questions, or want to report a bug,
+              please contact us by email.
+            </p>
+            <a class="support-email" href="mailto:support@scenink.app">support@scenink.app</a>
+          </div>
+
+          <div class="legal-box" id="legal">
+            <h2>Privacy & Legal</h2>
+            <p class="section-lead" style="margin-bottom: 10px;">
+              Add your official documents here before publishing broadly.
+            </p>
+            <p><a class="support-email" href="#">Privacy Policy</a></p>
+            <p><a class="support-email" href="#">Terms of Use</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container section-card">
+        <h2>FAQ</h2>
+        <div class="faq">
+          <details open>
+            <summary>What is ScenInk?</summary>
+            <p>ScenInk is a creative support tool for artists who want to build scenes, pose characters, explore camera angles, and sketch over references.</p>
+          </details>
+
+          <details>
+            <summary>Who is ScenInk for?</summary>
+            <p>ScenInk is made for comic artists, illustrators, students, and visual storytellers who need help with composition, anatomy, and perspective.</p>
+          </details>
+
+          <details>
+            <summary>How can I report a bug?</summary>
+            <p>You can report bugs by emailing us at support@scenink.app with a short description of the issue and, if possible, screenshots.</p>
+          </details>
+
+          <details>
+            <summary>Is ScenInk available on iPhone and iPad?</summary>
+            <p>Update this answer based on your release targets. For example: “ScenInk is currently optimized for iPad.”</p>
+          </details>
+
+          <details>
+            <summary>Can I use ScenInk for comic planning and sketching?</summary>
+            <p>Yes. ScenInk is designed to support scene planning, pose exploration, and drawing workflows for comics and visual storytelling.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <div>
+        <strong>ScenInk</strong><br />
+        Official support website
+      </div>
+      <div class="footer-links">
+        <a href="mailto:support@scenink.app">support@scenink.app</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+      <div>© 2026 ScenInk. All rights reserved.</div>
+    </div>
+  </footer>
+</body>
+</html>
