@@ -131,20 +131,18 @@ margin-top: 28px;
 display: inline-flex;
 align-items: center;
 justify-content: center;
-padding: 14px 20px;
 border-radius: 999px;
 text-decoration: none;
 font-weight: 600;
 transition: 0.22s ease;
 border: 1px solid transparent;
 }
-/* Stile Pulsante App Store */
 .btn-appstore {
 background: #000000;
 color: #ffffff;
 border: 1px solid var(--card-border);
-padding: 10px 24px;
-gap: 12px;
+padding: 8px 22px;
+gap: 10px;
 }
 .btn-appstore:hover {
 background: #0a0a0a;
@@ -153,8 +151,8 @@ transform: translateY(-2px);
 box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
 .btn-appstore svg {
-width: 22px;
 height: 22px;
+width: auto;
 fill: currentColor;
 }
 .btn-appstore .btn-text {
@@ -164,16 +162,16 @@ align-items: flex-start;
 line-height: 1.1;
 }
 .btn-appstore .top-txt {
-font-size: 0.65rem;
+font-size: 0.62rem;
 font-weight: 400;
 opacity: 0.8;
 }
 .btn-appstore .main-txt {
-font-size: 1.1rem;
+font-size: 1.05rem;
 font-weight: 600;
 }
-
 .btn-primary {
+padding: 14px 24px;
 background: linear-gradient(135deg, var(--accent), #c7f0ff);
 color: #04111a;
 box-shadow: 0 10px 30px rgba(143, 216, 255, 0.24);
@@ -183,6 +181,7 @@ transform: translateY(-1px);
 box-shadow: 0 14px 34px rgba(143, 216, 255, 0.32);
 }
 .btn-secondary {
+padding: 14px 24px;
 color: var(--text);
 background: rgba(255,255,255,0.05);
 border-color: rgba(255,255,255,0.1);
@@ -190,7 +189,9 @@ border-color: rgba(255,255,255,0.1);
 .btn-secondary:hover {
 background: rgba(255,255,255,0.08);
 }
-section { padding: 34px 0; }
+section {
+padding: 34px 0;
+}
 .section-card {
 background: var(--card);
 border: 1px solid var(--card-border);
@@ -219,8 +220,15 @@ border: 1px solid rgba(255,255,255,0.08);
 border-radius: 18px;
 padding: 18px;
 }
-.feature h3 { margin: 0 0 6px; font-size: 1rem; }
-.feature p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+.feature h3 {
+margin: 0 0 6px;
+font-size: 1rem;
+}
+.feature p {
+margin: 0;
+color: var(--muted);
+font-size: 0.95rem;
+}
 .support-box {
 display: grid;
 grid-template-columns: 1.15fr 0.85fr;
@@ -242,17 +250,32 @@ font-weight: 700;
 font-size: 1.05rem;
 word-break: break-word;
 }
-.faq { display: grid; gap: 14px; }
+.faq {
+display: grid;
+gap: 14px;
+}
 details {
 background: rgba(255,255,255,0.04);
 border: 1px solid rgba(255,255,255,0.08);
 border-radius: 16px;
 padding: 16px 18px;
 }
-summary { cursor: pointer; font-weight: 600; list-style: none; }
-summary::-webkit-details-marker { display: none; }
-details p { margin: 10px 0 0; color: var(--muted); }
-footer { padding: 32px 0 48px; color: var(--muted); }
+summary {
+cursor: pointer;
+font-weight: 600;
+list-style: none;
+}
+summary::-webkit-details-marker {
+display: none;
+}
+details p {
+margin: 10px 0 0;
+color: var(--muted);
+}
+footer {
+padding: 32px 0 48px;
+color: var(--muted);
+}
 .footer-wrap {
 display: flex;
 justify-content: space-between;
@@ -261,13 +284,30 @@ flex-wrap: wrap;
 border-top: 1px solid rgba(255,255,255,0.08);
 padding-top: 24px;
 }
-.footer-links a { color: var(--muted); text-decoration: none; margin-right: 16px; }
+.footer-links a {
+color: var(--muted);
+text-decoration: none;
+margin-right: 16px;
+}
 .footer-links a:hover { color: var(--text); }
 @media (max-width: 900px) {
-.hero-grid, .support-box, .features { grid-template-columns: 1fr; }
-h1 { font-size: clamp(2.4rem, 12vw, 4rem); }
-.nav { flex-direction: column; align-items: flex-start; gap: 10px; }
-.nav nav a { margin-left: 0; margin-right: 14px; }
+.hero-grid,
+.support-box,
+.features {
+grid-template-columns: 1fr;
+}
+h1 {
+font-size: clamp(2.4rem, 12vw, 4rem);
+}
+.nav {
+flex-direction: column;
+align-items: flex-start;
+gap: 10px;
+}
+.nav nav a {
+margin-left: 0;
+margin-right: 14px;
+}
 }
 </style>
 </head>
@@ -300,7 +340,7 @@ h1 { font-size: clamp(2.4rem, 12vw, 4rem); }
 </div>
 <div class="tagline">From 3D vision to 2D art</div>
 <p class="lead">
-ScenInk is a creative tool designed for comic artists, illustrators, and visual storytellers. Build scenes, pose characters, and draw directly on top of your references.
+ScenInk is a creative tool designed for comic artists, illustrators, and visual storytellers. It helps users build scenes, pose characters, explore camera angles, and draw directly on top of their references.
 </p>
 <div class="hero-actions">
 <a class="btn btn-appstore" href="https://apps.apple.com/it/app/scenink-draw-3d-scenes/id6760011718?l=en-GB" target="_blank">
@@ -320,12 +360,12 @@ ScenInk is a creative tool designed for comic artists, illustrators, and visual 
 <div class="container section-card">
 <h2>About ScenInk</h2>
 <p class="section-lead">
-Designed to simplify comic creation. Handle scene composition, character posing, perspective, and anatomy in one place.
+ScenInk is designed to simplify comic creation and visual storytelling by helping artists handle scene composition, character posing, perspective, anatomy, and storytelling through camera angles.
 </p>
 <div class="features">
 <div class="feature">
 <h3>Scene composition</h3>
-<p>Build references for framing and depth.</p>
+<p>Build references that help organize framing, depth, and visual balance.</p>
 </div>
 <div class="feature">
 <h3>Character posing</h3>
@@ -333,11 +373,11 @@ Designed to simplify comic creation. Handle scene composition, character posing,
 </div>
 <div class="feature">
 <h3>Perspective & anatomy</h3>
-<p>Support for difficult angles and body structures.</p>
+<p>Support difficult angles, body structure, and complex hand references.</p>
 </div>
 <div class="feature">
 <h3>Storytelling through camera</h3>
-<p>Explore angles to improve your visual narration.</p>
+<p>Explore camera angles and points of view to improve visual narration.</p>
 </div>
 </div>
 </div>
@@ -348,14 +388,14 @@ Designed to simplify comic creation. Handle scene composition, character posing,
 <div class="mail-box">
 <h2>Support</h2>
 <p class="section-lead" style="margin-bottom: 0;">
-Need help or found a bug?
+If you need help using ScenInk, have questions, or want to report a bug, please contact us by email.
 </p>
 <a class="support-email" href="mailto:tonybonny2001@gmail.com">tonybonny2001@gmail.com</a>
 </div>
 <div class="legal-box">
 <h2>Privacy</h2>
 <p class="section-lead" style="margin-bottom: 10px;">
-Read how we handle your data.
+Read our Privacy Policy for more information about how ScenInk handles user data.
 </p>
 <p><a class="support-email" href="privacy.html">Privacy Policy</a></p>
 </div>
@@ -368,15 +408,23 @@ Read how we handle your data.
 <div class="faq">
 <details open>
 <summary>What is ScenInk?</summary>
-<p>ScenInk is a creative support tool for artists to build scenes, pose characters, and sketch over 3D references.</p>
+<p>ScenInk is a creative support tool for artists who want to build scenes, pose characters, explore camera angles, and sketch over references.</p>
 </details>
 <details>
-<summary>Is ScenInk available on iPhone?</summary>
-<p>ScenInk is currently optimized and available only for iPad to guarantee the best drawing experience.</p>
+<summary>Who is ScenInk for?</summary>
+<p>ScenInk is made for comic artists, illustrators, students, and visual storytellers who need help with composition, anatomy, and perspective.</p>
 </details>
 <details>
 <summary>How can I report a bug?</summary>
-<p>Email us at tonybonny2001@gmail.com with a description and screenshots.</p>
+<p>You can report bugs by emailing us at tonybonny2001@gmail.com with a short description of the issue and, if possible, screenshots.</p>
+</details>
+<details>
+<summary>Is ScenInk available on iPhone and iPad?</summary>
+<p>ScenInk is currently available only for iPad.</p>
+</details>
+<details>
+<summary>Can I use ScenInk for comic planning and sketching?</summary>
+<p>Yes. ScenInk is designed to support scene planning, pose exploration, and drawing workflows for comics and visual storytelling.</p>
 </details>
 </div>
 </div>
